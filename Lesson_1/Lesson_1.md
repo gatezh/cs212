@@ -1,5 +1,6 @@
 #Lesson 1
 
+
 ##Outlining The Problem
 
 A general process:
@@ -22,10 +23,12 @@ The main functions in this game will take a list of `hands` and will return the 
 
 ##Representing Hands
 
-In this game `hands` will be represented as a list of tuples  
-```
+In this game `hands` will be represented as a list of tuples 
+ 
+```python
 [(11, 'S'), (11, 'D'), (2, 'S'), (2, 'C'), (7, 'H')]
 ```
+
 
 ##Poker Function
 
@@ -46,4 +49,22 @@ Some small example on how `max` function works
 
 [More info](https://docs.python.org/3/library/functions.html#max) on `max` built-in function.
 
+
+##Testing
+
+The simplest way to test a program is to define and then to call a function with some sample arguments.  
+
+```python
+def test():
+	"Test cases for the functions in poker program."
+	sf = "6C 7C 8C 9C TC".split()
+	fk = "9D 9H 9S 9C 7D".split()
+	fh = "TD TC TH 7C 7D".split()
+	assert poker([sf, fk, fh]) == sf
+	return "tests pass"
+
+print test()
+```
+
+`assert` statemet asserts that the following thing must be True. If it's not true a program will stop and print an error message. And if it's true it will run
 
