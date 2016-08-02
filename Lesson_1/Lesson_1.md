@@ -151,3 +151,17 @@ tuple: `(1, 2, [11, 6, 3, 2, 2])` <== 11 for Jack
 hand: `7C | 5C | 4C | 3C | 2D`
 
 tuple: `(0, 7, 5, 4, 3, 2)`
+
+
+##card_ranks function
+
+`ranks` is generated list by returning index of each element (which is an integer) and making list out of that.  
+There are some other ways to get the same result by using dictionary or `for` statemens, but this solution is much smaller and easier to understand.
+
+```python
+def card_ranks(cards):
+    "Return a list of the ranks, sorted with higher first."
+    ranks = ["--23456789TJQKA".index(r) for r,s in cards]
+    ranks.sort(reverse=True)
+    return ranks
+```
