@@ -66,5 +66,5 @@ def test():
 print test()
 ```
 
-`assert` statemet asserts that the following thing must be True. If it's not true a program will stop and print an error message. And if it's true it will run
+`assert` statemet asserts that the following thing must be True. If it's not true a program will stop and print an error message. And if it's true a code will run and in our case will print "tests pass".
 
