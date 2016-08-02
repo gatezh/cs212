@@ -68,3 +68,19 @@ print test()
 
 `assert` statemet asserts that the following thing must be True. If it's not true a program will stop and print an error message. And if it's true a code will run and in our case will print "tests pass".
 
+One of the important things of testing is to test for `extreme values`: 0 players, 1 player, 100 players etc.
+
+```python
+def test():
+    "Test cases for the functions in poker program"
+    sf = "6C 7C 8C 9C TC".split() 
+    fk = "9D 9H 9S 9C 7D".split() 
+    fh = "TD TC TH 7C 7D".split()
+    assert poker([sf, fk, fh]) == sf
+    assert poker([fk, fh]) == fk
+    assert poker([fh, fh]) == fh
+    assert poker([fh]) == fh
+    assert poker([fk] + 99 * [fh]) == fk
+    return 'tests pass'
+```
+
