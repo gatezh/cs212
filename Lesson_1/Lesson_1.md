@@ -84,3 +84,11 @@ def test():
     return 'tests pass'
 ```
 
+##Representing rank
+
+In tihs program rank will be represented as a `tuple`.  
+
+```python
+(7, 9, 5) > (7, 3, 2)
+```
+
