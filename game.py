@@ -1,9 +1,43 @@
+# You may assume the following behavior of each function:
+#
+# straight(ranks): returns True if the hand is a straight.
+# flush(hand):     returns True if the hand is a flush.
+# kind(n, ranks):  returns the first rank that the hand has
+#                  exactly n of. For A hand with 4 sevens 
+#                  this function would return 7.
+# two_pair(ranks): if there is a two pair, this function 
+#                  returns their corresponding ranks as a 
+#                  tuple. For example, a hand with 2 twos
+#                  and 2 fours would cause this function
+#                  to return (4, 2).
+# card_ranks(hand) returns an ORDERED tuple of the ranks 
+#                  in a hand (where the order goes from
+#                  highest to lowest rank). 
+
 def poker(hands):
     "Return the best hand: poker([hand,...] => hand)"
     return max(hands, key=hand_rank)
 
 def hand_rank(hand):
-	return None
+    ranks = card_ranks(hand)
+    if straight(ranks) and flush(hand):            # straight flush
+        return (8, max(ranks))
+    elif kind(4, ranks):                           # 4 of a kind
+        return (7, kind(4, ranks), kind(1, ranks))
+    elif kind(3, ranks) and kind(2, ranks):        # full house
+        return (6, kind(3, ranks), kind(2, ranks))
+    elif flush(hand):                              # flush
+        return (5, [ranks])
+    elif straight(ranks):                          # straight
+        return (4, max(ranks))
+    elif kind(3, ranks):                           # 3 of a kind
+        return (3, max(ranks), ranks)
+    elif two_pair(ranks):                          # 2 pair
+        return (2, kind(3, ranks), kind(2, ranks), ranks)
+    elif kind(2, ranks):                           # kind
+        return (1, ranks)
+    else:                                          # high card
+        return (0, ranks)
 
 def test():
     "Test cases for the functions in poker program"
