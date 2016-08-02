@@ -27,3 +27,23 @@ In this game `hands` will be represented as a list of tuples
 [(11, 'S'), (11, 'D'), (2, 'S'), (2, 'C'), (7, 'H')]
 ```
 
+##Poker Function
+
+General idea of Poker Function
+
+```python
+def poker(hands):
+    "Return the best hand: poker([hand,...] => hand)"
+    return max
+```
+
+Some small example on how `max` function works
+
+```python
+>>>print max([3, 4, 5, 0]), max([3, 4, -5, 0], key=abs)
+5 -5
+```
+
+[More info](https://docs.python.org/3/library/functions.html#max) on `max` built-in function.
+
+
