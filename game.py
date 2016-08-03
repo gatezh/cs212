@@ -15,9 +15,10 @@
 #                  highest to lowest rank).
 
 def poker(hands):
-    "Return the best hand: poker([hand,...] => hand)"
+    "Return a list of winning hands: poker([hand,...]) => [hand,...]"
     return allmax(hands, key=hand_rank)
 
+# https://classroom.udacity.com/courses/cs212/lessons/48688918/concepts/487235700923#
 def allmax(iterable, key=None):
     "Return a list of all items equal to the max of the iterable."
     result, maxval = [], None
@@ -29,7 +30,7 @@ def allmax(iterable, key=None):
         elif xval == maxval:
             result.append(x)
     return result
-    
+
 def hand_rank(hand):
     ranks = card_ranks(hand)
     if straight(ranks) and flush(hand):            # straight flush
