@@ -3,16 +3,16 @@
 # straight(ranks): returns True if the hand is a straight.
 # flush(hand):     returns True if the hand is a flush.
 # kind(n, ranks):  returns the first rank that the hand has
-#                  exactly n of. For A hand with 4 sevens 
+#                  exactly n of. For A hand with 4 sevens
 #                  this function would return 7.
-# two_pair(ranks): if there is a two pair, this function 
-#                  returns their corresponding ranks as a 
+# two_pair(ranks): if there is a two pair, this function
+#                  returns their corresponding ranks as a
 #                  tuple. For example, a hand with 2 twos
 #                  and 2 fours would cause this function
 #                  to return (4, 2).
-# card_ranks(hand) returns an ORDERED tuple of the ranks 
+# card_ranks(hand) returns an ORDERED tuple of the ranks
 #                  in a hand (where the order goes from
-#                  highest to lowest rank). 
+#                  highest to lowest rank).
 
 def poker(hands):
     "Return the best hand: poker([hand,...] => hand)"
@@ -75,6 +75,24 @@ def kind(n, ranks):
         if n == ranks.count(i):
             return i
     return None
+
+def two_pair(ranks):
+    """If there are two pair, return the two ranks as a
+    tuple: (highest, lowest); otherwise return None."""
+    highest = None
+    lowest = None
+    for i in ranks:
+        if ranks.count(i) == 2:
+            highest = i
+            break
+    for i in ranks[::-1]:
+        if ranks.count(i) == 2:
+            if highest != i:
+                lowest = i
+                break
+    if (highest == None) or (lowest == None):
+        return None
+    return (highest, lowest)
 
 def test():
     "Test cases for the functions in poker program"
