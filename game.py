@@ -45,6 +45,29 @@ def card_ranks(cards):
     ranks.sort(reverse=True)
     return ranks
 
+def straight(ranks):
+    "Return True if the ordered ranks form a 5-card straight."
+    count = 0
+    for i in range(0, 4):
+        if (ranks[i] - 1) == ranks[i + 1]:
+            count += 1
+    if count == 4:
+        return True
+    else:
+        return False
+
+def flush(hand):
+    "Return True if all the cards have the same suit."
+    suits = [s for r,s in hand]
+    count = 0
+    for i in range(0, 4):
+        if suits[i] == suits[i + 1]:
+            count += 1
+    if count == 4:
+        return True
+    else:
+        return False
+
 def test():
     "Test cases for the functions in poker program"
     sf = "6C 7C 8C 9C TC".split() # Straight Flush
