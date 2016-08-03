@@ -68,6 +68,14 @@ def flush(hand):
     else:
         return False
 
+def kind(n, ranks):
+    """Return the first rank that this hand has exactly n of.
+    Return None if there is no n-of-a-kind in the hand."""
+    for i in ranks:
+        if n == ranks.count(i):
+            return i
+    return None
+
 def test():
     "Test cases for the functions in poker program"
     sf = "6C 7C 8C 9C TC".split() # Straight Flush
