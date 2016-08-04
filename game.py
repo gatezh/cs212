@@ -106,6 +106,23 @@ def two_pair(ranks):
         return None
     return (highest, lowest)
 
+# The problems is that both deal funcitons use .pop() method, so it will cause
+# an error of popping from empty list when numhands = 11 or more
+def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
+    random.shuffle(mydeck)
+    result, tmp = [], []
+
+    for i in range(numhands):
+        tmp = []
+        for e in range(n):
+            tmp.append(mydeck.pop())
+        result.append(tmp)
+    return result
+
+# def deal2(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
+#     random.shuffle(deck)
+#     return [[deck.pop() for e in range(n)] for i in range(numhands)]
+
 def test():
     "Test cases for the functions in poker program"
     sf = "6C 7C 8C 9C TC".split() # Straight Flush
