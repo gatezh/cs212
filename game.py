@@ -13,6 +13,7 @@
 # card_ranks(hand) returns an ORDERED tuple of the ranks
 #                  in a hand (where the order goes from
 #                  highest to lowest rank).
+import random
 
 def poker(hands):
     "Return a list of winning hands: poker([hand,...]) => [hand,...]"
@@ -84,6 +85,10 @@ def two_pair(ranks):
     else:
         return None
 
+def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
+    random.shuffle(deck)
+    return [deck[n*i:n*(i+1)] for i in range(hands)]
+
 def test():
     "Test cases for the functions in poker program"
     sf = "6C 7C 8C 9C TC".split() # Straight Flush
@@ -92,11 +97,11 @@ def test():
     assert card_ranks(sf) == [10, 9, 8, 7, 6]
     assert card_ranks(fk) == [9, 9, 9, 9, 7]
     assert card_ranks(fh) == [10, 10, 10, 7, 7]
-    assert poker([sf, fk, fh]) == sf
-    assert poker([fk, fh]) == fk
-    assert poker([fh, fh]) == fh
-    assert poker([sf]) == sf
-    assert poker([sf] + 99*[fh]) == sf
+    assert poker([sf, fk, fh]) == [sf]
+    assert poker([fk, fh]) == [fk]
+    assert poker([fh, fh]) == [fh, fh]
+    assert poker([sf]) == [sf]
+    assert poker([sf] + 99*[fh]) == [sf]
     assert hand_rank(sf) == (8, 10)
     assert hand_rank(fk) == (7, 9, 7)
     assert hand_rank(fh) == (6, 10, 7)
