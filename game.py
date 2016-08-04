@@ -85,6 +85,7 @@ def two_pair(ranks):
     else:
         return None
 
+# https://classroom.udacity.com/courses/cs212/lessons/48688918/concepts/487293300923#
 def deal(numhands, n=5, deck=[r+s for r in '23456789TJQKA' for s in 'SHDC']):
     random.shuffle(deck)
     return [deck[n*i:n*(i+1)] for i in range(hands)]
