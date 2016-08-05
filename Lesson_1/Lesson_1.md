@@ -21,6 +21,14 @@ The main functions in this game will take a list of `hands` and will return the 
 `poker(hands) -> hand`
 
 
+##Suits of cards
+
+Red       | Black  
+----------| --------
+♥ Hearts  | ♠ Spades  
+♦ Diamonds| ♣ Clubs 
+
+
 ##Representing Hands
 
 In this game `hands` will be represented as a list of tuples 
