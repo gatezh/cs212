@@ -100,3 +100,19 @@ sq called 8
 [0, 4, 16, 36, 64]
 >>> 
 ```
+
+
+##Measure time of running
+
+To figure out how much time your app is running we can use standard `time` module which has a `clock` function
+
+```python
+import time
+
+def timedcall(fn, *args):
+    """Call function and return elapsed time."""
+    t0 = time.clock()
+    result = fn(*args)
+    t1 = time.clock()
+    return t1 - t0, result
+```
