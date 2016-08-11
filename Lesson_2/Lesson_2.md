@@ -144,3 +144,28 @@ def timedcalls(n, fn, *args):
             times.append(timedcall(fn, *args)[0])
     return min(times), average(times), max(times)
 ```
+
+
+##Translation Tables
+
+In the code below we have a regular expression search that prevents situation when number starts with zero (0).
+
+>It is important because number `012` in Python means `10`.  
+>In C-based languages numbers starting with 0 are `octal` numbers with base of 8.
+
+```python
+import string, re
+
+def valid(f):
+    "Formula f is valid if it has no numbers with leading zero and evals true."
+    try:
+        # re.search - regular expression search
+        # b stands for 'boundary'
+        # looking for 0 followed by any number [0-9] in f
+        return not re.search(r'\b0[0-9]', f) and eval(f) is True
+    except ZeroDivisionError: # ArithmeticError is more powerful in this case
+        return False
+```
+
+
+
