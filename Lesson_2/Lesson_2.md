@@ -174,6 +174,7 @@ In this example we make a function that replaces letters with numbers so the for
 Check Lines 14-17 and 26 for examples of `regular expression` use.
 
 ```python
+from __future__ import division
 import string, re, itertools
 
 
@@ -203,3 +204,29 @@ def valid(f):
     except ArithmeticError:
         return False
 ```
+
+
+##Future Imports
+
+In Python 2.X a result of division of integer numbers is **always** an integer.  
+In Python 3.X a result of division may be float as well.  
+To get Python 3.X kind of behaviour in Python 2.X we can import from `__future__` module.
+
+```python
+from __future__ import division
+```
+
+
+##Tracking Time
+
+To analyse how much time it takes for your application to run it's different components we can use `cProfile` module.  
+
+```python
+$python -m cProfile crypt.py
+```
+
+So we can concentrate out efforts to change parts where most of the time is.  
+
+And it's not just a good idea – it's a low.
+
+**Law of Diminishing Returns**  
