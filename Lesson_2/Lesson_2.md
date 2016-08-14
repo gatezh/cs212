@@ -230,3 +230,19 @@ So we can concentrate out efforts to change parts where most of the time is.
 And it's not just a good idea – it's a low.
 
 **Law of Diminishing Returns**  
+
+
+##Recommended books by Peter Norvig
+
+General:  
+1. Practise of programming  
+2. Elements of programming style  
+3. Structure and interpretation of computer programs – *standard text book for introductory CS* 
+4. Programming pearls
+
+Python books:  
+1. How to think like a computer scientist (Python version)
+2. Python in a nutshell
+3. Python cookbook
+4. Head First: Python
+
